@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 puntos y reforma | Tu albañil de confianza</title>
+    <meta name="description"
+        content="Refacciones profesionales de cocinas y baños en Capital Federal. Calidad, experiencia y confianza." />
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #2a4d69;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            padding: 2rem;
+            text-align: center;
+            background: #d0efff;
+        }
+
+        .services,
+        .trabajos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .service-card {
+            max-width: 300px;
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .service-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .trabajo {
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .trabajo img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        form {
+            padding: 2rem;
+            max-width: 500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input,
+        textarea,
+        select,
+        button {
+            padding: 0.8rem;
+            font-size: 1rem;
+        }
+
+        button {
+            background: #2a4d69;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e3a54;
+        }
+
+        .whatsapp-btn {
+            display: block;
+            text-align: center;
+            margin: 2rem auto;
+            background: #25d366;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #2a4d69;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        #boti-fred {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        #boti-window {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            padding: 16px;
+            font-family: sans-serif;
+        }
+
+        #boti-window h4 {
+            margin-top: 0;
+        }
+
+        .boti-btn {
+            background: #a3b18a;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 10px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        /* Mejora el header y las tarjetas en móviles */
+        @media (max-width: 600px) {
+            header>div {
+                flex-direction: column !important;
+                gap: 12px !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            header img {
+                width: 70px !important;
+                height: 70px !important;
+                margin-bottom: 8px !important;
+            }
+
+            header h1 {
+                font-size: 2rem !important;
+            }
+
+            header span {
+                font-size: 1rem !important;
+            }
+
+            .services {
+                flex-direction: column !important;
+                gap: 1rem !important;
+                padding: 1rem !important;
+            }
+
+            .service-card img {
+                height: 120px !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 0.5rem;
+            }
+
+            .hero {
+                padding: 1rem;
+            }
+
+            .services,
+            .trabajos {
+                padding: 1rem;
+            }
+
+            form {
+                padding: 1rem;
+            }
+
+            .service-card,
+            .trabajo {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .boti-btn {
+                font-size: 0.8rem;
+            }
+        }
+
+        .main-header {
+            background: #2a4d69;
+            color: white;
+            padding: 1rem;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 2.6rem;
+        }
+
+        .header-content span {
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 2rem;
+            margin-left: 32px;
+            margin-top: 0;
+            justify-content: center;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .main-nav a:hover {
+            background: #1e3a54;
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 600px) {
+            .header-content {
+                display: grid;
+                grid-template-columns: 70px 1fr;
+                align-items: center;
+                gap: 12px;
+                text-align: left;
+            }
+
+            .logo-img {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 0;
+                grid-column: 1;
+                grid-row: 1 / span 2;
+                justify-self: start;
+            }
+
+            .header-content h1 {
+                font-size: 2rem;
+                grid-column: 2;
+                grid-row: 1;
+                margin-left: 8px;
+            }
+
+            .header-content span {
+                font-size: 1rem;
+                grid-column: 2;
+                grid-row: 2;
+                margin-left: 8px;
+            }
+
+            .main-nav {
+                flex-direction: row;
+                gap: 1rem;
+                margin-left: 0;
+                margin-top: 8px;
+                justify-content: center;
+            }
+
+            .main-nav a {
+                display: inline-block;
+                margin: 0;
+                font-size: 1rem;
+                padding: 0.5rem 0.7rem;
+                text-align: center;
+            }
+
+            .services {
+                flex-direction: column !important;
+                gap: 1rem !important;
+                padding: 1rem !important;
+            }
+
+            .service-card img {
+                height: 120px !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            #boti-fred {
+                bottom: 80px !important;
+                right: 20px !important;
+            }
+
+            #boti-window {
+                bottom: 140px !important;
+                right: 20px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <!-- Logo primero, a la izquierda -->
+            <img src="img/logo.jpg" alt="Logo 11 puntos y reforma" class="logo-img">
+            <!-- Título y subtítulo después del logo -->
+            <div>
+                <h1>11 puntos y reforma</h1>
+                <span>Tu albañil de confianza</span>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <a href="#servicios">Servicios</a>
+            <a href="#trabajos">Trabajos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Tu albañil de confianza</h1>
+        <p>Refacciones de cocinas, baños e interiores en Capital Federal.</p>
+    </section>
+    <section id="servicios" class="services">
+        <div class="service-card">
+            <img src="img/albanil.jpg" alt="Albañilería">
+            <h3>Albañilería General</h3>
+            <p>Muros, paredes y terminaciones con acabado profesional.</p>
+        </div>
+        <div class="service-card">
+            <img src="img/bano.jpg" alt="Baños">
+            <h3>Refacciones de Baños</h3>
+            <p>Revestimientos, sanitarios, griferías y modernización completa.</p>
+        </div>
+        <div class="service-card">
+            <img src="img/pisos.jpg" alt="Pisos">
+            <h3>Colocación de Pisos</h3>
+            <p>Pisos de cerámica y porcelanato con nivelación perfecta.</p>
+        </div>
+    </section>
+    <section id="trabajos" class="trabajos">
+        <div class="trabajo">
+            <img src="img/foto_2.jpg" alt="Trabajo realizado 1">
+            <p><strong>Garantizando nuestros mejores trabajos </strong> </p>
+        </div>
+        <div class="trabajo">
+            <img src="img/foto_3.jpg" alt="Trabajo realizado 2">
+            <p><strong>Garantizando nuestros mejores trabajos.</strong> </p>
+        </div>
+    </section>
+    <section id="contacto">
+        <form onsubmit="enviarWhatsApp(event)">
+            <h2>Contacto</h2>
+            <input type="text" id="nombre" placeholder="Tu nombre" required>
+            <input type="email" id="correo" placeholder="Correo electrónico" required>
+            <input type="tel" id="telefono" placeholder="Teléfono (opcional)">
+            <select id="servicio" required>
+                <option value="">¿Qué servicio necesitás?</option>
+                <option value="baño">Refacción de baño</option>
+                <option value="cocina">Refacción de cocina</option>
+                <option value="pisos">Colocación de pisos</option>
+            </select>
+            <textarea id="mensaje" rows="4" placeholder="Contanos más..." required></textarea>
+            <button type="submit">Enviar por WhatsApp</button>
+        </form>
+    </section><a class="whatsapp-btn" href="https://wa.me/5491138317482" target="_blank">Chatear directamente por
+        WhatsApp</a>
+
+    <footer>
+        © 2025 11 puntos y reforma. Todos los derechos reservados.
+    </footer>
+
+    <!-- BOTI FRED -->
+    <div id="boti-fred">
+        <button onclick="document.getElementById('boti-window').style.display='block'">🤖</button>
+    </div>
+
+    <div id="boti-window">
+        <h4>Boti Fred</h4>
+        <p>¿Sobre qué querés consultar?</p>
+        <div>
+            <button class="boti-btn" onclick="responder('precio baño')">¿Cuánto cuesta refaccionar un baño?</button>
+            <button class="boti-btn" onclick="responder('tiempo baño')">¿Cuánto tarda un baño completo?</button>
+            <button class="boti-btn" onclick="responder('zona')">¿En qué zonas trabajás?</button>
+            <button class="boti-btn" onclick="responder('formas pago')">¿Qué formas de pago aceptás?</button>
+            <button class="boti-btn" onclick="responder('reserva')">¿Cómo se reserva un trabajo?</button>
+            <button class="boti-btn" onclick="responder('arquitecto')">¿Hace falta arquitecto?</button>
+            <button class="boti-btn" onclick="responder('trabajos')">¿Qué tipo de trabajos hacés?</button>
+            <span onclick="document.getElementById('boti-window').style.display='none'" style="position:absolute; top:8px; right:12px; font-size:24px; color:#000; cursor:pointer;">✖</span>
+        </div>
+        <div id="respuesta-boti" style="margin-top:1rem; font-size:0.95rem;"></div>
+    </div>
+
+    <style>
+        #boti-fred {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        #boti-window {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            padding: 16px;
+            font-family: sans-serif;
+        }
+
+        .boti-btn {
+            background: #a3b18a;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 10px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+    </style>
+
+    <script>
+        function responder ( pregunta )
+        {
+            const r = document.getElementById( "respuesta-boti" )
+            let respuesta = ""
+            if ( pregunta === "precio baño" ) respuesta = "💬 Una refacción de baño puede variar según el estado y los detalles. Escribime y te paso un estimado."
+            else if ( pregunta === "tiempo baño" ) respuesta = "💬 Un baño completo tarda entre 20 y 45 días, dependiendo el estado y lo que haya que hacer."
+            else if ( pregunta === "zona" ) respuesta = "💬 Solamente trabajamos en Capital Federal."
+            else if ( pregunta === "formas pago" ) respuesta = "💬 Aceptamos transferencias bancarias y pagos en efectivo."
+            else if ( pregunta === "reserva" ) respuesta = "💬 Para reservar, se dejan $10.000. El día que empiezo el trabajo se paga el 40% del total. Hay espera de entre 15 y 30 días."
+            else if ( pregunta === "arquitecto" ) respuesta = "💬 No hace falta arquitecto para lo que yo hago. Es más directo y te ahorrás ese gasto."
+            else if ( pregunta === "trabajos" ) respuesta = "💬 Hago albañilería en general, con eso te digo todo: cocinas, baños, pisos, pintura y más."
+            else respuesta = "💬 No entendí esa, ¿podés preguntar de otra forma?"
+            r.innerHTML = respuesta
+        }
+    </script>
+    <!-- FIN BOTI FRED -->
+</body>
+
+</html>
