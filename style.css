@@ -1,4 +1,3 @@
-/* Tipografía y fondo */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -7,27 +6,46 @@ body {
   color: #333;
 }
 
-/* Encabezado */
-header {
+/* Header */
+.main-header {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
-  font-size: 1.5em;
+}
+.logo-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 
-/* Navegación */
-nav a {
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: #fff;
+}
+.hero h2 {
+  font-size: 2em;
+}
+.hero button {
+  background: #2575fc;
   color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: 600;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
-nav a:hover {
-  text-decoration: underline;
+.hero button:hover {
+  background: #6a11cb;
+  transition: 0.3s;
 }
 
-/* Tarjetas de contenido */
+/* Servicios */
+.services {
+  text-align: center;
+  padding: 40px 20px;
+}
 .card {
   background: white;
   margin: 20px auto;
@@ -36,29 +54,25 @@ nav a:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   width: 80%;
   max-width: 400px;
+}
+
+/* Contacto */
+.contact {
+  background: #eee;
+  padding: 40px 20px;
   text-align: center;
 }
 
-/* Botones */
-button {
-  background: #2575fc;
+/* Footer */
+footer {
+  background: #2a4d69;
   color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-button:hover {
-  background: #6a11cb;
-  transition: 0.3s;
+  text-align: center;
+  padding: 15px;
 }
 
-/* Responsive para celular */
+/* Responsive */
 @media (max-width: 600px) {
-  header {
-    font-size: 1.2em;
-    padding: 20px;
-  }
   .card {
     width: 95%;
   }
